@@ -43,5 +43,5 @@ app.post('/submit', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`elijah executor server is running`);
+  console.log(`starlight android executor server is running`);
 });
