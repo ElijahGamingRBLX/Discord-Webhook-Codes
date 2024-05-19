@@ -27,20 +27,24 @@ text_label.Name = "nameText"
 
 RunService.RenderStepped:Connect(function()
     for i, v in pairs(Players:GetChildren()) do
-        if not v.Character.Head:FindFirstChild("nameESP") or v == game.Players.LocalPlayer then
+        if not v.Character.HumanoidRootPart:FindFirstChild("nameESP") then
+            if v ~= game.Players.LocalPlayer then
         local billboard_guiClone = billboard_gui:Clone()
         billboard_guiClone.Name = "nameESP"
         billboard_guiClone:FindFirstChild("nameText").Text = v.Name
-        billboard_guiClone.Parent = v.Character:FindFirstChild("Head")
+        billboard_guiClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
         end
+       end
     end
 end)
 
 Players.PlayerAdded:Connect(function(player)
-    if not player.Character.Head:FindFirstChild("nameESP") or player == game.Players.LocalPlayer then
+    if not player.Character.HumanoidRootPart:FindFirstChild("nameESP") then
+        if v ~= game.Players.LocalPlayer then  
     local billboard_guiClone = billboard_gui:Clone()
     billboard_guiClone.Name = ("nameESP")
     billboard_guiClone:FindFirstChild("nameText").Text = player.Name
     billboard_guiClone.Parent = player.Character:FindFirstChild("Head")
     end
+  end
 end)   
